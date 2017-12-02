@@ -10,3 +10,5 @@ Observações:
     - Dentro da react-backend, se rodarem npm start, verão que nosso servidor começara a rodar no link http://localhost:3001, printando na sua tela Welcome to Express. Deixem este servidor rodando.
     - Dentro da pasta blerbus, se derem npm start, verão que nosso front em react começara a rodar, aparecendo no seu browser a pagina de login. 
     - Os dois conversam através da tag proxy localizada dentro do package-json da pasta blerbus, podem ver que a porta nesta tag corresponde a 3001, porta do express.
+
+Não esqueçam de dar npm install para instalar todos os pacotes dependentes do projeto.

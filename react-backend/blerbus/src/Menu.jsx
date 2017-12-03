@@ -21,7 +21,7 @@ class Menu extends Component {
 
     render(){
         if(this.state.currentPage == "Avaliar"){
-            return(<Avaliar setCurrentPage={this.setCurrentPage}/>)
+            return(<Avaliar user = {this.props.user} setCurrentPage={this.setCurrentPage}/>)
         }
         if(this.state.currentPage == "Status"){
             return(<Status/>)   

@@ -7,6 +7,8 @@ import 'react-select/dist/react-select.css';
 import TextField from 'material-ui/TextField';
 import { Async } from 'react-select';
 import "./Menu.css";
+import FontIcon from 'material-ui/FontIcon';
+import MenuLateral from './MenuLateral.jsx'
 
 class Avaliar extends Component{
     constructor(props){
@@ -55,7 +57,7 @@ class Avaliar extends Component{
         .then(res => res.json())
         .then(callback => {
             console.log(callback)
-            alert("Obrigado, quanto mais avaliações, mais apurada são nossas informações")
+            alert("Obrigado, quanto mais avaliações, mais apuradas são nossas informações")
             this.props.setCurrentPage("Status")
         })
         // this.props.setCurrentPage("Status")
@@ -85,18 +87,12 @@ class Avaliar extends Component{
         return(
             <div>
             <AppBar
-                    title="A que ponto chegamos ?"
-                    iconClassNameRight="muidocs-icon-navigation-expand-more"
+                    title="A que ponto chegamos?"
             />
             <div className="row"></div>
                 <div className="row">
                     <div className="col s2" id="avatar">
-                    <Avatar
-                        src=""
-                        size={60}
-
-                    />
-                    <p>Welcome {this.props.user}</p>
+                        <MenuLateral user = {this.props.user} />
                     </div>
                     <div className="col s5">
                         <p>Em qual linha você está ? </p>

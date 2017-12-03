@@ -41,7 +41,6 @@ app.use(
   },'request')
   
   );
-  
 
 app.use('/', index);
 app.use('/getUsers', getUsers);

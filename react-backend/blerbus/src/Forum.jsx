@@ -1,36 +1,31 @@
 import React from 'react'
 import AppBar from 'material-ui/AppBar';
 import Avatar from 'material-ui/Avatar';
+import Table1 from './table.js';
 
 class Forum extends React.Component{
     constructor(){
         super()
         this.state ={
-    
+            perguntas: {},
         };
     };
 
-    _perguntas(){
-   
-    }
+    componentWillMount(){
+        fetch('/forum', {
+            method: 'GET'
+        })
+        .then(res => res.json())
+        .then(result => {
+            console.log(result)
+
+            //for (var i = 0; i < result.lenght; i++){
+            //    console.log()
+            //  }
+        });   
+    };
 
     render( ){
-
-        const getPerguntas = () => {
-            return fetch('/forum')
-              .then((response) => {
-                return response.json();
-              }).then((json) => {
-                console.log(json.result)
-                json = json.result
-                //var results = []
-                //for(var i = 0; i < json.length; i++){
-                 //   results.push({value: i, label: json[i].perguntas})
-                }
-                return { perguntas: json};
-              });
-        }
-
         return(
             <div>
                 <AppBar
@@ -47,12 +42,9 @@ class Forum extends React.Component{
                     <p>Welcome {this.props.user}</p>
                     </div>
                 </div>
+                
                 <div className="col s5">
-                    <table>
-                        <tr>
-                            <td>{getPerguntas}</td>
-                        </tr>
-                    </table>
+                <Table1/>
                 </div>
             </div>
         )

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/pergunta', function(req, res, next){
+router.get('/', function(req, res, next){
 
     var id = req.body.perguntaId;
 
@@ -24,5 +24,8 @@ router.get('/pergunta', function(req, res, next){
                 });
         });
 })
+
+module.exports = router;
+
 
 

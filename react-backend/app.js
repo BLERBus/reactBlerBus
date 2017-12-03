@@ -9,6 +9,8 @@ var index = require('./routes/index');
 var getUsers = require('./routes/getUsers');
 var login = require('./routes/login');
 var getLinhas = require('./routes/getLinhas');
+var forum = require('./routes/forum');
+
 
 var app = express();
 
@@ -33,7 +35,7 @@ app.use(
   connection(mysql,{
       host     : 'localhost',
       user     : 'root',
-      password : 'Katchin98',
+      password : '1234',
       database : 'blerbus',
       debug    : false //set true if you wanna see debug logger
   },'request')
@@ -45,6 +47,7 @@ app.use('/', index);
 app.use('/getUsers', getUsers);
 app.use('/login', login);
 app.use('/getLinhas', getLinhas);
+app.use('/forum', forum);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

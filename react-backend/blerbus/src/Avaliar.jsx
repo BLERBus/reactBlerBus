@@ -58,11 +58,15 @@ class Avaliar extends Component{
             alert("Obrigado, quanto mais avaliações, mais apurada são nossas informações")
             this.props.setCurrentPage("Status")
         })
-        // this.props.setCurrentPage("Status")
     }
 
     statusChange(ev){
         this.setState({statusValue: ev.target["id"]})
+    }
+
+
+    _redirectForum(){
+        this.props.setCurrentPage("Forum")
     }
 
     render(){
@@ -97,6 +101,7 @@ class Avaliar extends Component{
 
                     />
                     <p>Welcome {this.props.user}</p>
+                    <button onClick ={() => this._redirectForum()}>Forum</button>
                     </div>
                     <div className="col s5">
                         <p>Em qual linha você está ? </p>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Login from './Login.jsx';
 import Menu from './Menu.jsx';
+import './css/materialize.css'
 
 class App extends Component {
   constructor(props){

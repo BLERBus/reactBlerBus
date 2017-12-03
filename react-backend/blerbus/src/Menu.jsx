@@ -1,27 +1,32 @@
 import React, {Component} from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
-import AppBar from 'material-ui/AppBar';
+import Avaliar from './Avaliar.jsx';
+import Status from './Status.jsx';
+
+
+//redirect react component to change, stay at Menu
 
 
 class Menu extends Component {
     constructor(props){
         super(props)
         this.state = {
-
+            currentPage: "Avaliar",
         }
+    }
+
+    
+    setCurrentPage = (page) => {
+        this.setState({currentPage: page})
     }   
 
     render(){
-        return(
-            <div>
-                <AppBar
-                    title="A que ponto chegamos ?"
-                    iconClassNameRight="muidocs-icon-navigation-expand-more"
-                />
-                <h1>Welcome {this.props.user}</h1>
-                <RaisedButton label="Logout"  onClick={this.props.logOut} />
-            </div>
-        )
+        if(this.state.currentPage == "Avaliar"){
+            return(<Avaliar setCurrentPage={this.setCurrentPage}/>)
+        }
+        if(this.state.currentPage == "Status"){
+            return(<Status/>)   
+        }
     }
 }
+
 export default Menu;

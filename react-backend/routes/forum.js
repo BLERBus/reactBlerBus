@@ -22,5 +22,28 @@ router.get('/', function(req, res, next){
         });
 })
 
+router.post('/', function(req, res, next){
+    console.log("forum request")
+    req.getConnection(function(err,conn){
+
+        var pergunta = req.body.pergunta,
+        
+            if (err) return next("Cannot Connect");
+    
+            var query = conn.query('INSERT INTO forum (pergunta) values(?) ',pergunta, function(err,rows){
+    
+                if(err){
+                    console.log(err);
+                    return next("Mysql error, check your query");
+                }
+
+                var result = JSON.parse(JSON.stringify(rows)); 
+                //console.log(result.rows)
+                res.json({result});
+    
+                });
+        });
+})
+
 module.exports = router;
 

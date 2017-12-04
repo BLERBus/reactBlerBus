@@ -1,16 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res, next){
+router.post('/', function(req, res, next){
 
-    var id = req.body.perguntaId;
+    let id = req.body.id;
+    console.log(id)
 
-    console.log("pergunta request")
+    console.log("reposta request")
     req.getConnection(function(err,conn){
         
             if (err) return next("Cannot Connect");
     
-            var query = conn.query('SELECT resposta FROM forum LIMIT 10 where perguntaId = ?',id , function(err,rows){
+            var query = conn.query('SELECT * FROM respostas where perguntaId = ?', id , function(err,rows){
     
                 if(err){
                     console.log(err);
@@ -18,9 +19,8 @@ router.get('/', function(req, res, next){
                 }
 
                 var result = JSON.parse(JSON.stringify(rows)); 
-                
-                res.json({result});
-    
+                console.log(result);
+                res.json(result); 
                 });
         });
 })

@@ -3,9 +3,6 @@ import AppBar from 'material-ui/AppBar';
 import Avatar from 'material-ui/Avatar';
 import Table1 from './table.js';
 import Paper from 'material-ui/Paper';
-import Resposta from './Resposta.jsx';
-
-
 import "./Menu.css";
 
 
@@ -18,42 +15,43 @@ import {
     TableRowColumn,
   } from 'material-ui/Table';
 
-class Forum extends React.Component{
+class Pergunta extends React.Component{
     constructor(){
         super()
         this.state ={
             tableGeneralRows: [],
-            id : 0,
         };
     };
-
-
-    redirectPergunta(ev){
-        this.props.forumToQuestion(this.state.tableGeneralRows[ev].key)
-        console.log(this.state.tableGeneralRows[ev].key)
-    };
-
+    
     componentWillMount(){
-        fetch('/forum', {
-            method: 'GET'
+        console.log(this.props.id)
+        fetch('/resposta', {
+            method: 'POST',
+            body: JSON.stringify({"id": this.props.id}),
+            headers: {"Content-Type": "application/json"}
         })
+        // .then(res => res.json())
+        // .then(result => {
+        //     console.log(result)
+        // })
         .then(res => res.json())
         .then(result => {
-            let perguntas = []
+            let respostas = []
             // for (let i =0)
-            console.log(result)
+            console.log(result[0])
             for(var i = 0; i < result.length; i++){
-                console.log(result[i].perguntaId)
+                console.log(result[i].resposta)
 
-                perguntas.push(<TableRow key={result[i].perguntaId}>
-                                <TableRowColumn style={{color: "blue", textAlign: "center"}} >{result[i].perguntaId}</TableRowColumn>
-                                <TableRowColumn style={{color: "blue", textAlign: "center"}}>{result[i].pergunta}</TableRowColumn>
+                respostas.push(<TableRow key={result[i].respostaId}>
+                                <TableRowColumn style={{color: "blue", textAlign: "center"}} >{result[i].respostaId}</TableRowColumn>
+                                <TableRowColumn style={{color: "blue", textAlign: "center"}}>{result[i].resposta}</TableRowColumn>
                             </TableRow>)
             }
-            this.setState({tableGeneralRows: perguntas})
+            this.setState({tableGeneralRows: respostas})
     
             })   
     }
+
 
     render( ){
         return(
@@ -75,11 +73,11 @@ class Forum extends React.Component{
                 
                 <div className="col s5">
                 <Paper>
-                    <Table onCellClick ={(ev) => this.redirectPergunta(ev)}>
+                    <Table>
                         <TableHeader displaySelectAll = {false}>
                         <TableRow >
                             <TableHeaderColumn >Id</TableHeaderColumn>
-                            <TableHeaderColumn >Perguntas</TableHeaderColumn>
+                            <TableHeaderColumn >Respostas</TableHeaderColumn>
                         </TableRow>
                         </TableHeader>
                         <TableBody displayRowCheckbox = {false}>
@@ -93,4 +91,4 @@ class Forum extends React.Component{
         };
         
 }
-export default Forum;
+export default Pergunta;    

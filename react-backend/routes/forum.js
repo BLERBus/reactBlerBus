@@ -7,7 +7,7 @@ router.get('/', function(req, res, next){
         
             if (err) return next("Cannot Connect");
     
-            var query = conn.query('SELECT pergunta FROM forum LIMIT 10', function(err,rows){
+            var query = conn.query('SELECT perguntaId, pergunta FROM forum LIMIT 10', function(err,rows){
     
                 if(err){
                     console.log(err);
@@ -16,7 +16,7 @@ router.get('/', function(req, res, next){
 
                 var result = JSON.parse(JSON.stringify(rows)); 
                 //console.log(result.rows)
-                res.json({result});
+                res.json(result);
     
                 });
         });
@@ -26,7 +26,7 @@ router.post('/', function(req, res, next){
     console.log("forum request")
     req.getConnection(function(err,conn){
 
-        var pergunta = req.body.pergunta,
+            var pergunta = req.body.pergunta;
         
             if (err) return next("Cannot Connect");
     

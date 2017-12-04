@@ -10,6 +10,7 @@ var getUsers = require('./routes/getUsers');
 var login = require('./routes/login');
 var getLinhas = require('./routes/getLinhas');
 var forum = require('./routes/forum');
+var resposta = require('./routes/resposta');
 
 
 var app = express();
@@ -47,6 +48,8 @@ app.use('/getUsers', getUsers);
 app.use('/login', login);
 app.use('/getLinhas', getLinhas);
 app.use('/forum', forum);
+app.use('/resposta', resposta);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

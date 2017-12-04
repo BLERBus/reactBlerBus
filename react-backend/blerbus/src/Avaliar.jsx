@@ -1,13 +1,10 @@
 import React, {Component} from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from 'material-ui/AppBar';
-import Avatar from 'material-ui/Avatar';
-import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import TextField from 'material-ui/TextField';
 import { Async } from 'react-select';
 import "./Menu.css";
-import FontIcon from 'material-ui/FontIcon';
 import MenuLateral from './MenuLateral.jsx'
 
 class Avaliar extends Component{
@@ -92,7 +89,7 @@ class Avaliar extends Component{
             <div className="row"></div>
                 <div className="row">
                     <div className="col s2" id="avatar">
-                        <MenuLateral user = {this.props.user} />
+                        <MenuLateral user = {this.props.user} setCurrentPage={this.props.setCurrentPage}/>
                     </div>
                     <div className="col s5">
                         <p>Em qual linha você está ? </p>

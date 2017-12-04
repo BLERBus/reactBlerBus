@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import Avatar from 'material-ui/Avatar';
 import RaisedButton from 'material-ui/RaisedButton';
-import FontIcon from 'material-ui/FontIcon';
 import Forum from 'material-ui/svg-icons/communication/forum';
 import Poll from 'material-ui/svg-icons/social/poll';
+import Feedback from 'material-ui/svg-icons/action/feedback';
 import './css/material-icons.min.css';
 
 class MenuLateral extends Component{
@@ -13,7 +13,12 @@ class MenuLateral extends Component{
 
         }
     }
-
+    avaliarClicked(ev){
+        this.props.setCurrentPage("Avaliar")
+    }
+    statusClicked(ev){
+        this.props.setCurrentPage("Status")
+    }
     render(){
         const styles = {
             button: {
@@ -53,6 +58,15 @@ class MenuLateral extends Component{
                         secondary={true}
                         style={styles.button}
                         icon={<Poll />}
+                        onClick={(event) => this.statusClicked(event)}             
+                />
+                <RaisedButton
+                        target="_blank"
+                        label="Avaliar"
+                        secondary={true}
+                        style={styles.button}
+                        icon={<Feedback />}
+                        onClick={(event) => this.avaliarClicked(event)}
                         
                 />
             </div>

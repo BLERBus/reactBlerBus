@@ -10,7 +10,7 @@ class Menu extends Component {
     constructor(props){
         super(props)
         this.state = {
-            currentPage: "Avaliar",
+            currentPage: "Status",
         }
     }
 
@@ -20,11 +20,11 @@ class Menu extends Component {
     }   
 
     render(){
-        if(this.state.currentPage == "Avaliar"){
+        if(this.state.currentPage === "Avaliar"){
             return(<Avaliar user = {this.props.user} setCurrentPage={this.setCurrentPage}/>)
         }
-        if(this.state.currentPage == "Status"){
-            return(<Status/>)   
+        if(this.state.currentPage === "Status"){
+            return(<Status user = {this.props.user} setCurrentPage={this.setCurrentPage}/>)   
         }
     }
 }

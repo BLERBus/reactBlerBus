@@ -31,12 +31,6 @@ class Avaliar extends Component{
 
     getTime (){
         var currentdate = new Date(); 
-        // var datetime = "Last Sync: " + currentdate.getDate() + "/"
-        //                 + (currentdate.getMonth()+1)  + "/" 
-        //                 + currentdate.getFullYear() + " @ "  
-        //                 + currentdate.getHours() + ":"  
-        //                 + currentdate.getMinutes() + ":" 
-        //                 + currentdate.getSeconds();
         return currentdate.toString();
     }
 
@@ -116,10 +110,6 @@ class Avaliar extends Component{
                             <p>
                             <input className="with-gap" name="group1" type="radio" id="Lotado"  onChange={(ev) => this.statusChange(ev)} />
                             <label htmlFor="Lotado">Lotado</label>
-                            </p>
-                            <p>
-                            <input className="with-gap"  name="group1" type="radio" id="SuperLotado" onChange={(ev) => this.statusChange(ev)} />
-                            <label htmlFor="SuperLotado">SuperLotado</label>
                             </p>
 
                         </div>

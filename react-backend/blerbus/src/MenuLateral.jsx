@@ -4,6 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Forum from 'material-ui/svg-icons/communication/forum';
 import Poll from 'material-ui/svg-icons/social/poll';
 import Feedback from 'material-ui/svg-icons/action/feedback';
+import Exit from 'material-ui/svg-icons/action/exit-to-app';
 import './css/material-icons.min.css';
 
 class MenuLateral extends Component{
@@ -19,6 +20,14 @@ class MenuLateral extends Component{
     statusClicked(ev){
         this.props.setCurrentPage("Status")
     }
+    exitClicked(ev){
+        localStorage.setItem("user", "")
+        window.location.reload()
+    }
+    forumClicked(ev){
+        this.props.setCurrentPage("Forum")
+    }
+    
     render(){
         const styles = {
             button: {
@@ -42,7 +51,7 @@ class MenuLateral extends Component{
                     src=""
                     size={60}
                 />
-                <p>Seja bem vindo, {this.props.user}</p>
+                <p>Seja bem vindx, {this.props.user}</p>
 
                 <RaisedButton
                         target="_blank"
@@ -50,6 +59,7 @@ class MenuLateral extends Component{
                         secondary={true}
                         style={styles.button}
                         icon={<Forum />}
+                        onClick={(event) => this.forumClicked(event)}
                         
                 />
                 <RaisedButton
@@ -69,6 +79,25 @@ class MenuLateral extends Component{
                         onClick={(event) => this.avaliarClicked(event)}
                         
                 />
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <RaisedButton
+                        target="_blank"
+                        label="Sair"
+                        secondary={true}
+                        style={styles.button}
+                        icon={<Exit />}
+                        onClick={(event) => this.exitClicked(event)}
+                        
+                />
+
             </div>
         )
     }

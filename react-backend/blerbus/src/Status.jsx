@@ -24,11 +24,7 @@ class Status extends Component {
         };
     }
 
-    componentWillMount(){
-        fetch('/updateTime', {
-            method: 'GET'
-        })
-
+    getStatus(){
         fetch('/getStatus', {
             method: 'GET'
         })
@@ -55,6 +51,14 @@ class Status extends Component {
             this.setState({tableGeneralRows: linhas})
             
         })
+    }
+
+    componentWillMount(){
+        fetch('/updateTime', {
+            method: 'GET'
+        })
+        this.getStatus()
+
     }
     
     selectChange(ev){

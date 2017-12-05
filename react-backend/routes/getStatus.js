@@ -14,8 +14,10 @@ router.get('/', function(req, res, next){
                     return next("Mysql error, check your query");
                 }
                 
-                var linhas = []
-                var result = JSON.parse(JSON.stringify(rows));
+                let linhas = []
+                let result = JSON.parse(JSON.stringify(rows));
+                console.log(result)
+                if(result.length > 0){
                 for(var i = 0; i < result.length; i++){
                     linhas.push(result[i].linha)
                 }
@@ -42,7 +44,10 @@ router.get('/', function(req, res, next){
                     });
                     
                 }
-                
+                }
+                else{
+                    res.json({"status": "NoData"})
+                }
                 
                 }); 
         });
@@ -59,6 +64,7 @@ router.post('/', function(req, res, next) {
                     return next("Mysql error, check your query");
                 }
                 let result = JSON.parse(JSON.stringify(rows));
+                if(result.length > 0){
                 let status= {}
                 let maior = ""
                 let Contagem = 0
@@ -72,6 +78,10 @@ router.post('/', function(req, res, next) {
                 status[linhaSearch] = maior;
                 console.log(status)
                 res.json(status)
+                }
+                else {
+                    res.json({linhaSearch: "No Data"})
+                }
             })
     })
 });

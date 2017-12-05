@@ -40,6 +40,7 @@ router.get('/', function(req, res, next) {
                     })
                 }
             }
+            res.json({"200": "updated"})
             });
     });
 });

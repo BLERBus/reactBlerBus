@@ -24,7 +24,7 @@ class Resposta extends React.Component{
         };
     };
     
-    componentWillMount(){
+    getRespostas(){
         fetch('/resposta', {
             method: 'POST',
             body: JSON.stringify({"id": this.props.id}),
@@ -49,7 +49,11 @@ class Resposta extends React.Component{
             }
             this.setState({tableGeneralRows: respostas})
     
-            })   
+            })
+    }
+    
+    componentWillMount(){
+        this.getRespostas()
     }
 
     respostaValue(value){
@@ -68,7 +72,7 @@ class Resposta extends React.Component{
         .then(result => {
             if(result.status === "200"){
                 alert("Pergunta enviado com sucesso")
-                this.componentWillMount()
+                this.getRespostas()
             }
             console.log(result)
         })

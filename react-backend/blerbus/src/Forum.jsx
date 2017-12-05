@@ -46,6 +46,7 @@ class Forum extends React.Component{
     }
 
     componentWillMount(){
+        this.setState({proporValue: ""})
         fetch('/forum', {
             method: 'GET'
         })
@@ -77,7 +78,8 @@ class Forum extends React.Component{
         .then(result => {
             if(result.status === "200"){
                 alert("Pergunta enviado com sucesso")
-                window.location.reload()
+                this.setState({proporValue: ""})
+                this.componentWillMount()
             }
         })
 

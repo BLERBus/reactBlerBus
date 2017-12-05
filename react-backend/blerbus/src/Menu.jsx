@@ -13,7 +13,7 @@ class Menu extends Component {
     constructor(props){
         super(props)
         this.state = {
-            currentPage: "Forum",
+            currentPage: "Avaliar",
             id: 0,
             question: "",
         }
@@ -32,7 +32,7 @@ class Menu extends Component {
     render(){
         if(this.state.currentPage === "Avaliar"){
             return(<Avaliar user = {this.props.user} setCurrentPage={this.setCurrentPage}/>)
-        }
+        }   
 
         if(this.state.currentPage === "Status"){
             return(<Status user = {this.props.user} setCurrentPage={this.setCurrentPage}/>)   
@@ -47,7 +47,7 @@ class Menu extends Component {
         }
 
         if(this.state.currentPage == "Resposta"){
-            return(<Resposta user = {this.props.user} forumToQuestion={this.forumToQuestion} id = {this.state.id} question={this.state.question}/>)
+            return(<Resposta user = {this.props.user} setCurrentPage={this.setCurrentPage} forumToQuestion={this.forumToQuestion} id = {this.state.id} question={this.state.question}/>)
         }
     }
 }

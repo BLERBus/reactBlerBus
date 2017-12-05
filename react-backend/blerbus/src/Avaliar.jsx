@@ -49,6 +49,7 @@ class Avaliar extends Component{
         .then(callback => {
             console.log(callback)
             alert("Obrigado, quanto mais avaliações, mais apuradas são nossas informações")
+            // window.location.reload();
             this.props.setCurrentPage("Status")
         })
         // this.props.setCurrentPage("Status")

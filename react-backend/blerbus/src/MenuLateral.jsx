@@ -32,6 +32,12 @@ class MenuLateral extends Component{
         const styles = {
             button: {
               margin: 12,
+              width: '60%',
+
+            },
+            button2: {
+                margin: 12,
+                width: '60%',
             },
             exampleImageInput: {
               cursor: 'pointer',
@@ -51,12 +57,12 @@ class MenuLateral extends Component{
                     src=""
                     size={60}
                 />
-                <p>Seja bem vindx, {this.props.user}</p>
+                <p>Bem Vindx, {this.props.user}</p>
 
                 <RaisedButton
                         target="_blank"
                         label="Forum"
-                        secondary={true}
+                        backgroundColor="#9FA8DA"
                         style={styles.button}
                         icon={<Forum />}
                         onClick={(event) => this.forumClicked(event)}
@@ -65,7 +71,7 @@ class MenuLateral extends Component{
                 <RaisedButton
                         target="_blank"
                         label="Status"
-                        secondary={true}
+                        backgroundColor="#9FA8DA"
                         style={styles.button}
                         icon={<Poll />}
                         onClick={(event) => this.statusClicked(event)}             
@@ -73,26 +79,17 @@ class MenuLateral extends Component{
                 <RaisedButton
                         target="_blank"
                         label="Avaliar"
-                        secondary={true}
+                        backgroundColor="#9FA8DA"
                         style={styles.button}
                         icon={<Feedback />}
                         onClick={(event) => this.avaliarClicked(event)}
                         
                 />
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
                 <RaisedButton
                         target="_blank"
                         label="Sair"
-                        secondary={true}
-                        style={styles.button}
+                        backgroundColor="#f44336"
+                        style={styles.button2}
                         icon={<Exit />}
                         onClick={(event) => this.exitClicked(event)}
                         

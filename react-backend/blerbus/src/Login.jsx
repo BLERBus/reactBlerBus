@@ -63,6 +63,7 @@ class Login extends Component {
             <div>
             <AppBar
                 title="A que ponto chegamos"
+                style={{backgroundColor:'#9FA8DA', color: 'black',}} 
             />
             <div className="row">
             <div className="col s6">

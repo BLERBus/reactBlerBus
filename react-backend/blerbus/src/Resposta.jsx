@@ -101,6 +101,7 @@ class Resposta extends React.Component{
                 <AppBar
                         title="A que ponto chegamos ?"
                         iconClassNameRight="muidocs-icon-navigation-expand-more"
+                        style={{backgroundColor:'#9FA8DA', color: 'black',}}
                 />
                 <div className="row"></div>
                 <div className="row">
@@ -116,12 +117,23 @@ class Resposta extends React.Component{
                             fullWidth={true}
                             onChange={(ev) => this.respostaValue(ev.target.value)}
                     />
-                    <Paper>
+                    <br/>
+                    <RaisedButton
+                        backgroundColor = "#B39DDB" 
+                        primary={true}
+                        target="_blank"
+                        label="Enviar" 
+                        style={styles.button}
+                        onClick={(ev) => this.enviarClicked(ev)}
+                    />
+                    <br/>
+                    <br/>
+                    <Paper zDepth={2}>
                         <Table>
-                            <TableHeader displaySelectAll = {false}>
+                            <TableHeader adjustForCheckbox = {false} displaySelectAll = {false} style={{backgroundColor:'#9FA8DA', color: 'white'}}>
                             <TableRow >
-                                <TableHeaderColumn  style={{textAlign: "center"}}>Autor</TableHeaderColumn>
-                                <TableHeaderColumn >Respostas</TableHeaderColumn>
+                                <TableHeaderColumn  style={{backgroundColor:'#9FA8DA', color: 'black',textAlign: "center"}}>Autor</TableHeaderColumn>
+                                <TableHeaderColumn  style={{backgroundColor:'#9FA8DA', color: 'black'}}>Respostas</TableHeaderColumn>
                             </TableRow>
                             </TableHeader>
                             <TableBody displayRowCheckbox = {false}>
@@ -134,13 +146,7 @@ class Resposta extends React.Component{
                     <br/>
                     <br/>
                     <br/>
-                    <RaisedButton
-                        target="_blank"
-                        label="Enviar"
-                        secondary={true}    
-                        style={styles.button}
-                        onClick={(ev) => this.enviarClicked(ev)}
-                    />
+                    
                     </div>
                 </div>
             </div>

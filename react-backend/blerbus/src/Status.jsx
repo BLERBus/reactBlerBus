@@ -3,6 +3,7 @@ import MenuLateral from './MenuLateral.jsx';
 import AppBar from 'material-ui/AppBar';
 import SearchBar from 'material-ui-search-bar'
 import { Async } from 'react-select';
+import Paper from 'material-ui/Paper';
 import {
     Table,
     TableBody,
@@ -109,6 +110,7 @@ class Status extends Component {
             
             <div>
                 <AppBar
+                        style={{backgroundColor:'#9FA8DA', color: 'black',}}
                         title="A que ponto chegamos?"
                 />
                 <div className = "row"></div>
@@ -126,17 +128,20 @@ class Status extends Component {
                         onChange={(ev) => this.selectChange(ev)}
                         clearable={false}
                     />
+                    <br/>
                     
+                    <Paper zDepth={1}>
                     <Table style={{backgroundColor: "#F5F5F5"}}
                         selectable= {false}
                     >
                         <TableHeader
                             displaySelectAll={false}
                             adjustForCheckbox={false}
+                            style={{backgroundColor:'#9FA8DA', color: 'black'}}
                         >
                         <TableRow>
-                            <TableHeaderColumn style={{textAlign: "center"}}>Linha</TableHeaderColumn>
-                            <TableHeaderColumn style={{textAlign: "center"}}>Status</TableHeaderColumn>
+                            <TableHeaderColumn style={{textAlign: "center", color:'black'}}>Linha</TableHeaderColumn>
+                            <TableHeaderColumn style={{textAlign: "center", color:'black'}}>Status</TableHeaderColumn>
                         </TableRow>
                         </TableHeader>
                         <TableBody
@@ -145,17 +150,24 @@ class Status extends Component {
                         {this.state.tableSearchRows}
                         </TableBody> 
                     </Table>
+                    </Paper>
+
+
+                    <br/>
                     <p>Status geral</p>
+                    
+                    <Paper zDepth={3}>
                     <Table style={{backgroundColor: "#F5F5F5"}}
                         selectable= {false}
                     >
                         <TableHeader
                             displaySelectAll={false}
                             adjustForCheckbox={false}
+                            style={{backgroundColor:'#9FA8DA', color: 'black'}}
                         >
                         <TableRow>
-                            <TableHeaderColumn style={{textAlign: "center"}}>Linha</TableHeaderColumn>
-                            <TableHeaderColumn style={{textAlign: "center"}}>Status</TableHeaderColumn>
+                            <TableHeaderColumn style={{textAlign: "center",color:'black'}}>Linha</TableHeaderColumn>
+                            <TableHeaderColumn style={{textAlign: "center",color:'black'}}>Status</TableHeaderColumn>
                         </TableRow>
                         </TableHeader>
                         <TableBody
@@ -164,7 +176,7 @@ class Status extends Component {
                         {this.state.tableGeneralRows}
                         </TableBody> 
                     </Table>
-                    
+                    </Paper>
                     </div>
                     <div className = "col s2">
                     </div>

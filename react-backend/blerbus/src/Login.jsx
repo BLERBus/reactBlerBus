@@ -62,6 +62,7 @@ class Login extends Component {
             <MuiThemeProvider>
             <div>
             <AppBar
+                style={{backgroundColor:'#9FA8DA', color: 'black',}}         
                 title="A que ponto chegamos"
             />
             <div className="row">

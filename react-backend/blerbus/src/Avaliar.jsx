@@ -7,6 +7,8 @@ import { Async } from 'react-select';
 import "./Menu.css";
 import MenuLateral from './MenuLateral.jsx'
 
+
+
 class Avaliar extends Component{
     constructor(props){
         super(props)
@@ -79,12 +81,17 @@ class Avaliar extends Component{
             <div>
             <AppBar
                     title="A que ponto chegamos?"
+                    style={{backgroundColor:'#9FA8DA', color: 'black',}}
+                        
             />
             <div className="row"></div>
                 <div className="row">
                     <div className="col s2" id="avatar">
                         <MenuLateral user = {this.props.user} setCurrentPage={this.props.setCurrentPage}/>
                     </div>
+                    <div className="col s1">
+                        <p></p>
+                        </div>
                     <div className="col s5">
                         <p>Em qual linha você está ? </p>
                         <Async
@@ -114,21 +121,10 @@ class Avaliar extends Component{
 
                         </div>
                         
-                        <RaisedButton label="Avaliar" onClick={(event) => this.avaliar(event)}/>
+                        <RaisedButton backgroundColor = "#B39DDB" primary={true} label="Avaliar" onClick={(event) => this.avaliar(event)}/>
 
                     </div>
-                    <div className="col s5">
-                        <p>Em qual rua você pegou/pegará o ônibus ?</p>
-                        <TextField
-                            name="adress"
-                            hintText=""
-                            onChange={(ev) => this.adressChange(ev.target.value)}
-
-                        /><br />
-                        
-                    <div>{this.getTime()}</div> 
-
-                    </div>
+                    
                     </div>
             {/* <RaisedButton label="Logout"  onClick={this.props.logOut} /> */}
         </div>

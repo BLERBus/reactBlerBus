@@ -24,7 +24,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App" style={{width: window.innerWidth, height: window.innerHeight, backgroundColor: "#F5F5F5"}}>
+      <div className="App" style={{width: window.innerWidth, height: window.innerHeight, backgroundColor: "#E8EAF6s"}}>
         { this.state.user ? <Menu user = {this.state.user} logOut={this.logOut} /> : <Login onLogin={this.onLogin}/> }
       </div>
     );

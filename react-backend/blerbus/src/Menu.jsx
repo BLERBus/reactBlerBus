@@ -13,7 +13,7 @@ class Menu extends Component {
     constructor(props){
         super(props)
         this.state = {
-            currentPage: "Forum",
+            currentPage: "Avaliar",
             id: 0,
             question: "",
         }

@@ -9,6 +9,12 @@ import RaisedButton from 'material-ui/RaisedButton';
 import SearchBar from 'material-ui-search-bar'
 import { Async } from 'react-select';
 import "./Menu.css";
+import {
+    cyan500, cyan700,
+    pinkA200,
+    grey100, grey300, grey400, grey500,
+    white, darkBlack, fullBlack,
+  } from 'material-ui/styles/colors';
 
 
 import {
@@ -122,10 +128,13 @@ class Forum extends React.Component{
         }
 
         return(
-            <div>
-                <AppBar
+            <div >
+                <AppBar 
+                        
                         title="A que ponto chegamos ?"
                         iconClassNameRight="muidocs-icon-navigation-expand-more"
+                        style={{backgroundColor:'#9FA8DA', color: 'black',}}
+                        
                 />
                 <div className="row"></div>
                 <div className="row">
@@ -133,12 +142,22 @@ class Forum extends React.Component{
                         <MenuLateral user = {this.props.user} setCurrentPage={this.props.setCurrentPage}/>
                     </div>
                     <div className="col s9">
-                    <p> Proponha uma discussão </p>
+                    <br/>
                     <TextField
                             name="adress"
-                            hintText=""
+                            hintText="Proponha uma discussão"
                             fullWidth={true}
                             onChange={(ev) => this.proporValue(ev.target.value)}
+                            
+                    />
+
+                    <RaisedButton
+                        target="_blank"
+                        label="Enviar"
+                        primary={true}
+                        backgroundColor = "#B39DDB"    
+                        style={styles.button}
+                        onClick={(ev) => this.enviarClicked(ev)}
                     />
                     <br/>
                     <br/>
@@ -153,31 +172,22 @@ class Forum extends React.Component{
                         />
                     <br/>
                     <br/>
-                    <Paper>
+                    <Paper zDepth={2}>
                         <Table onCellClick ={(ev) => this.redirectPergunta(ev)}>
-                            <TableHeader displaySelectAll = {false}>
+                            <TableHeader adjustForCheckbox = {false} displaySelectAll = {false} style={{backgroundColor:'#9FA8DA', color: 'white',}}>
                             <TableRow >
                                 {/* <TableHeaderColumn >Id da pergunta</TableHeaderColumn> */}
-                                <TableHeaderColumn >Perguntas</TableHeaderColumn>
+                                <TableHeaderColumn style={{backgroundColor:'#9FA8DA', color: 'black',}} >Perguntas</TableHeaderColumn>
                             </TableRow>
                             </TableHeader>
+                           
                             <TableBody displayRowCheckbox = {false}>
                                 {this.state.tableGeneralRows}
                             </TableBody>
                         </Table>
                     </Paper>
                     </div>
-                    <div className="col s1">
-                    <br/>
-                    <br/>
-                    <RaisedButton
-                        target="_blank"
-                        label="Enviar"
-                        secondary={true}    
-                        style={styles.button}
-                        onClick={(ev) => this.enviarClicked(ev)}
-                    />
-                    </div>
+                    
                 </div>
                 
             </div>
